@@ -1,12 +1,16 @@
-
+// 
 const express = require('express');
-const dotenv = require('dotenv');
-const authRoutes = require('./routes/auth');
+const cors = require('cors');
+const authRoutes = require('./routes/auth'); // Import the authentication routes
 
-dotenv.config();
 const app = express();
-app.use(express.json());
+app.use(cors()); // Enable CORS
+app.use(express.json()); // Middleware to parse JSON request bodies
 
-app.use('/api', authRoutes);
+// Register routes
+app.use('/api', authRoutes); // All routes in auth.js will be prefixed with "/api"
 
-app.listen(3000, () => console.log('Server running on port 3000'));
+const PORT = 3000;
+app.listen(PORT, () => {
+    console.log(`Server running on port ${PORT}`);
+});
