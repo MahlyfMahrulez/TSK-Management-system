@@ -18,8 +18,8 @@ db.connect((err) => {
 });
 
 // ✅ Create a test user with a hashed password
-const email = 'user@example.com';
-const plainPassword = 'password123';
+const email = 'Sri@example.com';
+const plainPassword = '123';
 
 bcrypt.hash(plainPassword, 10, (err, hash) => {
     if (err) {
